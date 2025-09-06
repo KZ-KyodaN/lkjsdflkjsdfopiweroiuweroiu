@@ -6,164 +6,17 @@
     <meta name="apple-mobile-web-app-title" content="Kaspi.kz">
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Удостоверение личности</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f2f2f7;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            color: #1c1c1e;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 15px;
-            background-color: #ffffff;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .back-button {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 21'%3E%3Cpath fill='none' stroke='%23000000' stroke-width='3' d='M11.5 1.5l-10 9 10 9'/%3E%3C/svg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .header-title {
-            font-weight: 600;
-            font-size: 17px;
-            margin: 0;
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: center;
-            background-color: #e9e9ea;
-            margin: 10px 15px;
-            border-radius: 10px;
-            padding: 3px;
-        }
-
-        .tab-item {
-            flex: 1;
-            padding: 8px 16px;
-            font-size: 15px;
-            font-weight: 500;
-            color: #000000;
-            cursor: pointer;
-            text-align: center;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        .tab-item.active {
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .tab-item.active::after { display: none; }
-
-        .content-container {
-            flex-grow: 1;
-            padding: 0 15px 15px 15px; 
-            display: flex;
-            flex-direction: column; 
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; 
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 100%;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-        
-
-        .upload-placeholder {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            border: 2px dashed #cccccc;
-            border-radius: 12px;
-            text-align: center;
-            color: #8a8a8e;
-            cursor: pointer;
-        }
-
-        .upload-placeholder p {
-            margin-top: 10px;
-        }
-
-
-        .footer-buttons {
-            padding: 10px 15px 30px 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            flex-shrink: 0;
-        }
-
-        .action-button {
-            width: 100%;
-            padding: 14px;
-            font-size: 17px;
-            font-weight: 600;
-            border-radius: 14px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .primary {
-            background-color: #007aff;
-            color: white;
-            border: none;
-        }
-
-        .secondary {
-            background-color: #ffffff;
-            color: #007aff;
-            border: 2px solid #007aff;
-            padding: 12px;
-        }
-        
-        .action-button svg { width: 22px; height: 22px; }
-
-        #pdf-upload-input {
-            display: none;
-        }
-
-    </style>
 </head>
 <body>
 
     <input type="file" id="pdf-upload-input" accept="application/pdf">
 
     <div class="header">
-        <a href="#" class="back-button"></a>
+        <a href="back.html" class="back-button"></a>
         <h1 class="header-title">Удостоверение личности</h1>
     </div>
 
@@ -174,94 +27,501 @@
 
     <div class="content-container" id="content-container">
         </div>
-    
-    <div class="footer-buttons">
-        <a href="#" class="action-button primary">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h6v6H4zm2 2v2h2V6zM4 14h6v6H4zm2 2v2h2v-2zM14 4h6v6h-6zm2 2v2h2V6zM15 14h1v1h-1zM14 18h1v1h-1zM18 17h1v1h-1zM19 14h1v1h-1zM17 15h1v1h-1zM19 18h1v1h-1zM17 19h1v1h-1zM14 15h1v1h-1zM18 14h1v1h-1zM14 17h1v1h-1zM15 19h1v1h-1zM17 18h1v1h-1zM19 15h1v1h-1z"></path></svg>
-            Предъявить документ
-        </a>
-        <a href="#" class="action-button secondary">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5L12 17"></path><path d="M9 8L12 5L15 8"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path></svg>
-            Отправить документ
-        </a>
-    </div>
+    <!-- Контейнер с реквизитами (по умолчанию скрыт) -->
+<div id="details-container" style="display:none; padding:20px; font-size:16px; color:#000;">
 
-    <script>
-        const docTab = document.getElementById('docTab');
-        const detailsTab = document.getElementById('detailsTab');
-        const contentContainer = document.getElementById('content-container');
-        const pdfUploadInput = document.getElementById('pdf-upload-input');
-        const LOCAL_STORAGE_KEY = 'savedUserPDF';
+  <div class="field">
+    <div class="label">ФИО</div>
+    <div class="value" contenteditable="true" id="fio">Кликните для изменения</div>
+  </div>
 
-        function showUploadPlaceholder() {
-            contentContainer.innerHTML = `
-                <div class="upload-placeholder" id="upload-placeholder">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#cccccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line>
-                        <line x1="9" y1="15" x2="15" y2="15"></line>
-                    </svg>
-                    <p>Нажмите, чтобы загрузить PDF</p>
-                </div>
-            `;
-            document.getElementById('upload-placeholder').addEventListener('click', () => {
-                pdfUploadInput.click(); // Открываем стандартное окно выбора файла
-            });
-        }
+  <div class="field">
+    <div class="label">ИИН</div>
+    <div class="value" contenteditable="true" id="iin">Они сохранятся на устройстве</div>
+  </div>
 
+  <div class="field">
+    <div class="label">Дата рождения</div>
+    <div class="value" contenteditable="true" id="dob">22.02.2099</div>
+  </div>
 
-        function displayPdf(pdfDataUrl) {
-            contentContainer.innerHTML = `<iframe class="pdf-viewer" src="${pdfDataUrl}"></iframe>`;
-        }
+  <div class="field">
+    <div class="label">Номер документа</div>
+    <div class="value" contenteditable="true" id="docnum">148814888</div>
+  </div>
 
+  <div class="field">
+    <div class="label">Дата выдачи</div>
+    <div class="value" contenteditable="true" id="issued">99.99.2099</div>
+  </div>
 
-        function handleFileSelect(event) {
-            const file = event.target.files[0];
-            if (file && file.type === 'application/pdf') {
-                const reader = new FileReader();
+  <div class="field">
+    <div class="label">Срок действия</div>
+    <div class="value" contenteditable="true" id="expiry">99.99.2099</div>
+  </div>
+</div>
+<!-- футер для реквизитов -->
+<div class="footer-buttons" id="footer-details" style="display:none; position: fixed; bottom: 15px; left: 5px; right: 5px; padding: 12px; background: #fff;">
+    <a href="#" class="action-button secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5L12 17"></path>
+            <path d="M9 8L12 5L15 8"></path>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        </svg>
+        Отправить реквизиты
+    </a>
+</div>
 
-                reader.onload = function(e) {
-                    const pdfDataUrl = e.target.result;
+<!-- футер для документа -->
+<div class="footer-buttons" id="footer-docs">
+    <a href="#" class="action-button primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h6v6H4zm2 2v2h2V6zM4 14h6v6H4zm2 2v2h2v-2zM14 4h6v6h-6zm2 2v2h2V6zM15 14h1v1h-1zM14 18h1v1h-1zM18 17h1v1h-1zM19 14h1v1h-1zM17 15h1v1h-1zM19 18h1v1h-1zM17 19h1v1h-1zM14 15h1v1h-1zM18 14h1v1h-1zM14 17h1v1h-1zM15 19h1v1h-1zM17 18h1v1h-1zM19 15h1v1h-1z"></path></svg>
+        Предъявить документ
+    </a>
+    <a href="#" class="action-button secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5L12 17"></path><path d="M9 8L12 5L15 8"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path></svg>
+        Отправить документ
+    </a>
+</div>
 
-                    localStorage.setItem(LOCAL_STORAGE_KEY, pdfDataUrl);
-                    displayPdf(pdfDataUrl);
-                };
+<script>
+/* ---- Заменяем только скрипт: загрузка фото, просмотр, зум и секретный тап ---- */
+(function(){
+  'use strict';
 
-                reader.readAsDataURL(file);
-            } else {
-                alert('Пожалуйста, выберите файл в формате PDF.');
-            }
-        }
-        
+  const fileInput = document.getElementById('pdf-upload-input');
+  const contentContainer = document.getElementById('content-container');
+  const docTab = document.getElementById('docTab');
+  const detailsTab = document.getElementById('detailsTab');
 
-        pdfUploadInput.addEventListener('change', handleFileSelect);
-        const savedPdf = localStorage.getItem(LOCAL_STORAGE_KEY);
+  // Подключаем image accept в рантайме (чтобы не менять HTML вручную)
+  if (fileInput) fileInput.setAttribute('accept', 'image/*');
 
-        if (savedPdf) {
-            displayPdf(savedPdf);
+  // localStorage ключи
+  const KEY_MAIN = 'savedUserImage';
+  const KEY_ALT  = 'savedAltImage'; // можно использовать, если хочешь вручную записать альтернативную картинку
+
+  // Встроенная запасная альт-картинка (SVG) — на случай, если нет второй фотографии
+  const FALLBACK_ALT = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="460" height="460">
+      <rect width="100%" height="100%" fill="#f3f4f6"/>
+      <text x="50%" y="50%" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#9ca3af" text-anchor="middle" dominant-baseline="middle">Альтернативная</text>
+    </svg>`
+  );
+
+  // Состояние для зума/пан
+  let scale = 1, minScale = 1, maxScale = 4;
+  let panX = 0, panY = 0;
+  let startPanX = 0, startPanY = 0;
+  let startTouchX = 0, startTouchY = 0;
+  let isPanning = false;
+  let startDistance = 0, startScale = 1;
+  let lastTap = 0;
+
+  // секретные клики (для кнопки "Предъявить документ")
+  let secretClicks = 0;
+  let lastSecretClickTime = 0;
+  const SECRET_LIMIT = 10;
+  const SECRET_GAP_MS = 1000; // если больше этого между кликами — считать как новый счет
+
+  // Вспомог: показать заглушку загрузки (placeholder)
+  function showUploadPlaceholder(){
+    contentContainer.innerHTML = `
+      <div id="upload-placeholder" class="upload-placeholder" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#c7c7cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="12" y1="18" x2="12" y2="12"></line>
+          <line x1="9" y1="15" x2="15" y2="15"></line>
+        </svg>
+        <p style="margin-top:12px;color:#8e8e93;">Нажмите, чтобы загрузить фото</p>
+      </div>
+    `;
+    const ph = document.getElementById('upload-placeholder');
+    if (ph) ph.addEventListener('click', () => fileInput && fileInput.click());
+  }
+
+  // Отрисовать viewer с <img>, оборачиваем в контейнер для touch-action:none
+  function createImageViewer(dataUrl){
+    contentContainer.innerHTML = `
+      <div id="imgWrap" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none;">
+        <img id="docImage" src="${dataUrl}" alt="Документ" style="max-width:100%;max-height:100%;transform-origin:center center;transition:transform 0.08s ease" />
+      </div>
+    `;
+    initImageInteractions(); // навесим обработчики
+  }
+
+  // Установить источник картинки в viewer, опция сохранить основную (saveMain = true)
+  function setViewerSource(src, saveMain = false){
+    const img = document.getElementById('docImage');
+    if (!img){
+      createImageViewer(src);
+    } else {
+      img.src = src;
+    }
+    // сброс трансформаций
+    resetTransform();
+    if (saveMain) localStorage.setItem(KEY_MAIN, src);
+  }
+
+  // Сброс параметров зума/пана
+  function resetTransform(){
+    scale = 1; panX = 0; panY = 0;
+    const img = document.getElementById('docImage');
+    if (img){
+      img.style.transition = 'transform 0.15s ease';
+      img.style.transform = 'translate(0px,0px) scale(1)';
+      // убираем transition через 200ms чтобы след. перетаскивания были моментальными
+      setTimeout(()=>{ if (img) img.style.transition = ''; }, 200);
+    }
+  }
+
+  // Применить трансформацию
+  function applyTransform(){
+    const img = document.getElementById('docImage');
+    if (!img) return;
+    img.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+  }
+
+  // Получение расстояния между двумя touch
+  function getTouchDist(t1, t2){
+    const dx = t2.clientX - t1.clientX;
+    const dy = t2.clientY - t1.clientY;
+    return Math.hypot(dx, dy);
+  }
+
+  // Инициализация событий зум/пан для img
+  function initImageInteractions(){
+    const img = document.getElementById('docImage');
+    const wrap = document.getElementById('imgWrap');
+    if (!img || !wrap) return;
+
+    // колесо мыши для десктопа
+    wrap.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = -e.deltaY * 0.0015;
+      const prevScale = scale;
+      scale = Math.min(maxScale, Math.max(minScale, scale + delta));
+      if (scale !== prevScale) applyTransform();
+    }, { passive: false });
+
+    // двойной тап на мобильных (через временную проверку)
+    wrap.addEventListener('touchend', (e) => {
+      if (e.touches.length > 0) return;
+      const now = Date.now();
+      if (now - lastTap < 300) { // double tap
+        if (scale === 1){
+          scale = 2;
         } else {
-            showUploadPlaceholder();
+          scale = 1;
+          panX = 0; panY = 0;
         }
-        
-        docTab.addEventListener('click', () => {
-            if (!docTab.classList.contains('active')) {
-                docTab.classList.add('active');
-                detailsTab.classList.remove('active');
-                const savedPdf = localStorage.getItem(LOCAL_STORAGE_KEY);
-                if (savedPdf) { displayPdf(savedPdf); } 
-                else { showUploadPlaceholder(); }
-            }
-        });
+        applyTransform();
+      }
+      lastTap = now;
+    });
 
-        detailsTab.addEventListener('click', () => {
-            if (!detailsTab.classList.contains('active')) {
-                detailsTab.classList.add('active');
-                docTab.classList.remove('active');
-                contentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: #8a8a8e;">Здесь будут отображаться реквизиты документа.</div>';
-            }
-        });
+    // touchstart
+    wrap.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1 && scale > 1){
+        isPanning = true;
+        startTouchX = e.touches[0].clientX;
+        startTouchY = e.touches[0].clientY;
+        startPanX = panX;
+        startPanY = panY;
+      } else if (e.touches.length === 2){
+        startDistance = getTouchDist(e.touches[0], e.touches[1]);
+        startScale = scale;
+        isPanning = false;
+      }
+    }, { passive: false });
 
-    </script>
+    // touchmove
+    wrap.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 1 && isPanning){
+        e.preventDefault();
+        const dx = e.touches[0].clientX - startTouchX;
+        const dy = e.touches[0].clientY - startTouchY;
+        panX = startPanX + dx;
+        panY = startPanY + dy;
+        applyTransform();
+      } else if (e.touches.length === 2){
+        e.preventDefault();
+        const curDist = getTouchDist(e.touches[0], e.touches[1]);
+        const factor = curDist / startDistance;
+        scale = Math.min(maxScale, Math.max(minScale, startScale * factor));
+        applyTransform();
+      }
+    }, { passive: false });
+
+    // touchend
+    wrap.addEventListener('touchend', (e) => {
+      if (e.touches.length === 0){
+        isPanning = false;
+      }
+    });
+
+    //  реализуем только если scale>1
+    let mouseDown = false;
+    let mStartX = 0, mStartY = 0, mStartPanX = 0, mStartPanY = 0;
+    wrap.addEventListener('mousedown', (e) => {
+      if (scale <= 1) return;
+      mouseDown = true;
+      mStartX = e.clientX; mStartY = e.clientY;
+      mStartPanX = panX; mStartPanY = panY;
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!mouseDown) return;
+      panX = mStartPanX + (e.clientX - mStartX);
+      panY = mStartPanY + (e.clientY - mStartY);
+      applyTransform();
+    });
+    window.addEventListener('mouseup', () => { mouseDown = false; });
+
+    // при изменении изображения (новый src) нужно сбросить трансформации
+    img.addEventListener('load', () => resetTransform());
+  }
+
+  // Обработка выбора файла (для основной картинки)
+  function handleFileSelect(e){
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    if (!f.type.startsWith('image/')) {
+      alert('Пожалуйста, выберите изображение (jpg, png...).');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(ev){
+      const dataUrl = ev.target.result;
+      // показываем и сохраняем как основную картинку
+      setViewerSource(dataUrl, true);
+    };
+    reader.readAsDataURL(f);
+  }
+
+  // Первичное состояние: загружаем сохранённую картинку или placeholder
+  const saved = localStorage.getItem(KEY_MAIN);
+  if (saved) {
+    setViewerSource(saved, false);
+  } else {
+    showUploadPlaceholder();
+  }
+
+  // подключаем обработчики
+  fileInput && fileInput.addEventListener('change', handleFileSelect);
+
+  // получаем футеры (находим их один раз)
+  const footerDocs = document.getElementById("footer-docs");
+  const footerDetails = document.getElementById("footer-details");
+
+  // Чётко выбираем кнопки, находящиеся внутри конкретных футеров
+  const docPrimaryBtn = footerDocs ? footerDocs.querySelector('.action-button.primary') : null;
+  const docSecondaryBtn = footerDocs ? footerDocs.querySelector('.action-button.secondary') : null;
+  const detailsSecondaryBtn = footerDetails ? footerDetails.querySelector('.action-button.secondary') : null;
+
+  // helper: показать экран Документ
+  function showDoc(){
+    if (docTab && detailsTab) {
+      docTab.classList.add('active');
+      detailsTab.classList.remove('active');
+    }
+    contentContainer.style.display = "flex";
+    const detailsContainer = document.getElementById("details-container");
+    if (detailsContainer) detailsContainer.style.display = "none";
+
+    if (footerDocs) footerDocs.style.display = "flex";
+    if (footerDetails) footerDetails.style.display = "none";
+
+    const main = localStorage.getItem(KEY_MAIN);
+    if (main) setViewerSource(main, false);
+    else showUploadPlaceholder();
+  }
+
+  // helper: показать экран Реквизиты
+  function showDetails(){
+    if (docTab && detailsTab) {
+      detailsTab.classList.add('active');
+      docTab.classList.remove('active');
+    }
+    contentContainer.style.display = "none";
+    const detailsContainer = document.getElementById("details-container");
+    if (detailsContainer) detailsContainer.style.display = "block";
+
+    if (footerDocs) footerDocs.style.display = "none";
+    if (footerDetails) footerDetails.style.display = "flex";
+  }
+
+  // навешиваем переключатели табов один раз (используем наши helper'ы)
+  if (docTab) docTab.addEventListener('click', (e) => { e.preventDefault(); if (docTab.classList.contains('active')) return; showDoc(); });
+  if (detailsTab) detailsTab.addEventListener('click', (e) => { e.preventDefault(); if (detailsTab.classList.contains('active')) return; showDetails(); });
+
+  // если нужно - установить начальное состояние по классу active в DOM
+  if (docTab && docTab.classList.contains('active')) showDoc();
+  else showDetails();
+
+  // функция, которую вызываем при обычном клике "Предъявить" (если не секрет)
+  function presentDocumentNormal(btn){
+    // краткая анимация на кнопке — можно заменить на нужное действие
+    if (btn) btn.classList && btn.classList.add('pressed');
+    setTimeout(()=> { if (btn) btn.classList && btn.classList.remove('pressed'); }, 180);
+  }
+
+  // переключение основной <-> альтернативной картинкой (секрет)
+  function toggleAltImage(){
+    const main = localStorage.getItem(KEY_MAIN);
+    const alt  = localStorage.getItem(KEY_ALT) || FALLBACK_ALT;
+    const currentImg = document.getElementById('docImage');
+    const currentSrc = currentImg ? currentImg.src : null;
+
+    if (!currentSrc) {
+      // если сейчас пусто — показать main если есть, иначе alt
+      if (main) setViewerSource(main, false);
+      else setViewerSource(alt, false);
+      return;
+    }
+
+    // если текущая картинка совпадает с основной — переключить на альт
+    if (main && currentSrc === main) {
+      setViewerSource(alt, false); // не сохраняем как main
+    } else {
+      // переключаем обратно на main (если нет main — переключаем на alt)
+      if (main) setViewerSource(main, false);
+      else setViewerSource(alt, false);
+    }
+  }
+
+  // Привязка обработчика к кнопке Предъявить внутри футера документа
+  if (docPrimaryBtn) {
+    docPrimaryBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      const now = Date.now();
+      if (now - lastSecretClickTime <= SECRET_GAP_MS) {
+        secretClicks++;
+      } else {
+        secretClicks = 1;
+      }
+      lastSecretClickTime = now;
+
+      if (secretClicks >= SECRET_LIMIT){
+        secretClicks = 0;
+        toggleAltImage();
+        return;
+      }
+
+      // обычное действие (анимация)
+      presentDocumentNormal(docPrimaryBtn);
+    });
+  }
+
+  // Дополнительно: установка альтернативной картинки через вторую кнопку в футере документа
+  if (docSecondaryBtn){
+    docSecondaryBtn.addEventListener('click', function(e){
+      e.preventDefault();
+
+      // временный обработчик onchange с once:true — не вмешиваемся в глобальный addEventListener
+      const prevAccept = fileInput.getAttribute('accept');
+      fileInput.setAttribute('accept','image/*');
+
+      const onChangeAlt = function(ev){
+        const f = ev.target.files && ev.target.files[0];
+        if (!f) {
+          fileInput.value = '';
+          return;
+        }
+        if (!f.type.startsWith('image/')) { alert('Пожалуйста, выберите изображение.'); fileInput.value = ''; return; }
+        const r = new FileReader();
+        r.onload = function(ev2){
+          const dataUrl = ev2.target.result;
+          localStorage.setItem(KEY_ALT, dataUrl);
+          alert('Альтернативная фотография установлена (секретная картинка).');
+          fileInput.value = '';
+          fileInput.setAttribute('accept', prevAccept || 'image/*');
+        };
+        r.readAsDataURL(f);
+      };
+
+      // вешаем once-лисенер
+      fileInput.addEventListener('change', onChangeAlt, { once: true });
+      fileInput.click();
+    });
+  }
+
+  // Обработчик для кнопки "Отправить реквизиты" (в футере реквизитов)
+  if (detailsSecondaryBtn){
+    detailsSecondaryBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      // простая имитация действия — можно заменить на отправку формы
+      detailsSecondaryBtn.classList.add('pressed');
+      setTimeout(()=> detailsSecondaryBtn.classList.remove('pressed'), 160);
+      // здесь можно взять значения из #details-container и отправить на сервер
+    });
+  }
+
+})();
+// ----- автосохранение полей реквизитов в localStorage -----
+const detailIds = ['fio','iin','dob','docnum','issued','expiry'];
+const DETAIL_PREFIX = 'detail_';
+
+function saveDetail(id){
+  const el = document.getElementById(id);
+  if (!el) return;
+  try {
+    localStorage.setItem(DETAIL_PREFIX + id, (el.innerText || '').trim());
+  } catch (err) { /* ignore if storage blocked */ }
+}
+
+function loadDetailsFromStorage(){
+  detailIds.forEach(id => {
+    const stored = localStorage.getItem(DETAIL_PREFIX + id);
+    if (stored !== null) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = stored;
+    }
+  });
+}
+
+function saveAllDetails(){
+  detailIds.forEach(saveDetail);
+}
+
+// автосохранение при вводе и при потере фокуса
+detailIds.forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // contenteditable поддерживает событие input
+  el.addEventListener('input', () => saveDetail(id));
+  el.addEventListener('blur', () => saveDetail(id));
+});
+
+// подгрузить значения сразу при загрузке страницы
+loadDetailsFromStorage();
+
+// подгрузить значения также при открытии вкладки "Реквизиты"
+if (detailsTab) {
+  detailsTab.addEventListener('click', () => {
+    // на всякий случай — загрузим данные перед показом
+    loadDetailsFromStorage();
+  });
+}
+
+// сохранить перед закрытием вкладки (резерв)
+window.addEventListener('beforeunload', saveAllDetails);
+
+//  принудительное сохранение на кнопку "отправить реквы"
+const detailsFooterBtn = document.querySelector('#footer-details .action-button.secondary');
+if (detailsFooterBtn) {
+  detailsFooterBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    saveAllDetails();
+    // здесь можно добавить отправку на сервер
+    detailsFooterBtn.classList.add('pressed');
+    setTimeout(() => detailsFooterBtn.classList.remove('pressed'), 150);
+  });
+}
+</script>
+
+
 </body>
 
 </html>
