@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Удостоверение личности</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f2f2f7;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            color: #1c1c1e;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 15px;
+            background-color: #ffffff;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 21'%3E%3Cpath fill='none' stroke='%23000000' stroke-width='3' d='M11.5 1.5l-10 9 10 9'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .header-title {
+            font-weight: 600;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #e9e9ea;
+            margin: 10px 15px;
+            border-radius: 10px;
+            padding: 3px;
+        }
+
+        .tab-item {
+            flex: 1;
+            padding: 8px 16px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #000000;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab-item.active {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .tab-item.active::after { display: none; }
+
+        .content-container {
+            flex-grow: 1;
+            padding: 0 15px 15px 15px; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        
+
+        .upload-placeholder {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            border: 2px dashed #cccccc;
+            border-radius: 12px;
+            text-align: center;
+            color: #8a8a8e;
+            cursor: pointer;
+        }
+
+        .upload-placeholder p {
+            margin-top: 10px;
+        }
+
+
+        .footer-buttons {
+            padding: 10px 15px 30px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .action-button {
+            width: 100%;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 14px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .primary {
+            background-color: #007aff;
+            color: white;
+            border: none;
+        }
+
+        .secondary {
+            background-color: #ffffff;
+            color: #007aff;
+            border: 2px solid #007aff;
+            padding: 12px;
+        }
+        
+        .action-button svg { width: 22px; height: 22px; }
+
+        #pdf-upload-input {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <input type="file" id="pdf-upload-input" accept="application/pdf">
+
+    <div class="header">
+        <a href="#" class="back-button"></a>
+        <h1 class="header-title">Удостоверение личности</h1>
+    </div>
+
+    <div class="tabs">
+        <div id="docTab" class="tab-item active">Документ</div>
+        <div id="detailsTab" class="tab-item">Реквизиты</div>
+    </div>
+
+    <div class="content-container" id="content-container">
+        </div>
+    
+    <div class="footer-buttons">
+        <a href="#" class="action-button primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h6v6H4zm2 2v2h2V6zM4 14h6v6H4zm2 2v2h2v-2zM14 4h6v6h-6zm2 2v2h2V6zM15 14h1v1h-1zM14 18h1v1h-1zM18 17h1v1h-1zM19 14h1v1h-1zM17 15h1v1h-1zM19 18h1v1h-1zM17 19h1v1h-1zM14 15h1v1h-1zM18 14h1v1h-1zM14 17h1v1h-1zM15 19h1v1h-1zM17 18h1v1h-1zM19 15h1v1h-1z"></path></svg>
+            Предъявить документ
+        </a>
+        <a href="#" class="action-button secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5L12 17"></path><path d="M9 8L12 5L15 8"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path></svg>
+            Отправить документ
+        </a>
+    </div>
+
+    <script>
+        const docTab = document.getElementById('docTab');
+        const detailsTab = document.getElementById('detailsTab');
+        const contentContainer = document.getElementById('content-container');
+        const pdfUploadInput = document.getElementById('pdf-upload-input');
+        const LOCAL_STORAGE_KEY = 'savedUserPDF';
+
+        function showUploadPlaceholder() {
+            contentContainer.innerHTML = `
+                <div class="upload-placeholder" id="upload-placeholder">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#cccccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                    <p>Нажмите, чтобы загрузить PDF</p>
+                </div>
+            `;
+            document.getElementById('upload-placeholder').addEventListener('click', () => {
+                pdfUploadInput.click(); // Открываем стандартное окно выбора файла
+            });
+        }
+
+
+        function displayPdf(pdfDataUrl) {
+            contentContainer.innerHTML = `<iframe class="pdf-viewer" src="${pdfDataUrl}"></iframe>`;
+        }
+
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const pdfDataUrl = e.target.result;
+
+                    localStorage.setItem(LOCAL_STORAGE_KEY, pdfDataUrl);
+                    displayPdf(pdfDataUrl);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                alert('Пожалуйста, выберите файл в формате PDF.');
+            }
+        }
+        
+
+        pdfUploadInput.addEventListener('change', handleFileSelect);
+        const savedPdf = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+        if (savedPdf) {
+            displayPdf(savedPdf);
+        } else {
+            showUploadPlaceholder();
+        }
+        
+        docTab.addEventListener('click', () => {
+            if (!docTab.classList.contains('active')) {
+                docTab.classList.add('active');
+                detailsTab.classList.remove('active');
+                const savedPdf = localStorage.getItem(LOCAL_STORAGE_KEY);
+                if (savedPdf) { displayPdf(savedPdf); } 
+                else { showUploadPlaceholder(); }
+            }
+        });
+
+        detailsTab.addEventListener('click', () => {
+            if (!detailsTab.classList.contains('active')) {
+                detailsTab.classList.add('active');
+                docTab.classList.remove('active');
+                contentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: #8a8a8e;">Здесь будут отображаться реквизиты документа.</div>';
+            }
+        });
+
+    </script>
+</body>
+</html>
