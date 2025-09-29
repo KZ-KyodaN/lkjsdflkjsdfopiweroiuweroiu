@@ -179,45 +179,40 @@
   .section-title {
   padding-left: 15px;
 }
-/* Контейнер для всего списка документов */
 .document-list {
-    background-color: #ffffff; /* Белый фон */
-    border-radius: 12px;       /* Закругление углов */
-    margin: 0 15px;            /* Отступы по бокам, как у заголовка */
-    overflow: hidden;          /* Скрываем всё, что выходит за рамки закругления */
+    background-color: #ffffff;
+    border-radius: 12px;      
+    margin: 0 15px;          
+    overflow: hidden;      
 }
 
-/* Стиль для каждого пункта списка (Удостоверение, Студенческий) */
+
 .document-item {
-    display: flex;             /* Включаем Flexbox для выравнивания */
-    align-items: center;       /* Вертикальное выравнивание по центру */
-    padding: 14px 15px;        /* Внутренние отступы */
-    text-decoration: none;     /* Убираем подчёркивание у ссылки */
-    color: #000000;            /* Цвет текста */
+    display: flex;          
+    align-items: center;      
+    padding: 14px 15px;      
+    text-decoration: none;    
+    color: #000000;           
     font-size: 16px;
 }
 
-/* Разделительная линия между элементами */
+
 .document-item:first-child {
-    border-bottom: 1px solid #f0f0f0; /* Линия только у первого элемента */
+    border-bottom: 1px solid #f0f0f0; 
 }
 
-/* Иконка (общий стиль) */
+
 .document-item-icon {
-    width: 28px;               /* Ширина иконки */
-    height: 28px;              /* Высота иконки */
-    margin-right: 15px;        /* Отступ справа от иконки */
-    background-size: contain;  /* Масштабируем картинку, чтобы она поместилась */
+    width: 28px;            
+    height: 28px;            
+    margin-right: 15px;     
+    background-size: contain;  
     background-repeat: no-repeat;
     background-position: center;
 }
-
-/* Текст документа */
 .document-item-text {
-    flex-grow: 1;              /* Занимает всё доступное пространство, отодвигая стрелку */
+    flex-grow: 1;  
 }
-
-/* Стрелочка вправо (chevron) */
 .document-item-arrow {
     width: 12px;
     height: 12px;
@@ -226,15 +221,144 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-
-/* --- Применяем конкретные иконки --- */
-
-/* Иконка для удостоверения */
 #id-card-item .document-item-icon {
     background-image: url('idcard.jpg'); 
 }
-
-/* Иконка для студенческого билета */
 #student-card-item .document-item-icon {
     background-image: url('studcard.jpg');
+}
+.app-container {
+    width: 100%;
+    max-width: 450px; /* Имитация ширины мобильного устройства */
+    background-color: #ffffff;
+    padding: 8px 0;
+}
+
+/* Стили для верхней панели */
+.top-bar {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 16px;
+}
+
+.search-bar {
+    flex-grow: 1; /* Занимает всё доступное пространство */
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    padding: 10px 12px;
+    gap: 10px;
+    color: #8a8d93;
+}
+
+.search-icon {
+    font-size: 16px;
+}
+
+.search-placeholder {
+    font-size: 16px;
+}
+
+.cart-icon {
+    font-size: 22px;
+    color: #8a8d93;
+}
+
+
+
+.ad-container {
+    display: flex;
+    gap: 8px; /* Расстояние между карточками */
+    overflow-x: scroll; /* Включаем горизонтальный скролл */
+    cursor: grab;
+    user-select: none; /* Чтобы текст не выделялся при перетаскивании */
+    /* Прячем полосу прокрутки */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.ad-container::-webkit-scrollbar { /* WebKit */
+    display: none;
+}
+
+
+.ad-card img {
+    width: 110%;
+    height: 100%;
+    object-fit: cover; /* Изображение полностью заполняет карточку без искажений */
+    display: block;
+}
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Расстояние между строкой поиска и корзинкой */
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-bar {
+    /* flex-grow: 1 заставляет этот блок занять всё доступное место */
+    flex-grow: 1; 
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5; /* Светло-серый фон */
+    border-radius: 10px; /* Скругление углов */
+    padding: 10px 5px;
+}
+
+.search-icon {
+    width: 30px;   
+    height: 30px;  
+    margin-right: 1px;
+}
+
+.search-bar input {
+    border: none; 
+    outline: none; 
+    background-color: transparent; 
+    width: 100%; 
+    font-size: 16px;
+    color: #333;
+}
+
+
+.search-bar input::placeholder {
+    color: #8a8d93;
+    opacity: 1; 
+}
+
+.cart-icon {
+    width: 50px; 
+    height: 50px; 
+    padding: 1px;
+    cursor: pointer; }
+    .services-grid {
+    display: block;
+    text-align: center;
+}
+.service-button {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    text-decoration: none; 
+    color: #333;           
+    font-size: 12px;
+}
+.service-button img {
+    width: 100%; 
+    height: 100%; 
+    margin-bottom: 8px; 
+}
+.add-card img {
+    width: 100%;
+    height: 100%;
+}
+.butfootik img {
+    width: 100%;
+    height: 57px;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
 }
