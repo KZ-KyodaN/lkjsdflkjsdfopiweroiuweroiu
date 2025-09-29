@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Kaspi.kz">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kaspi.kz</title>
+</head> 
+<body>
+
+    <div class="app-container">
+        <header class="top-bar">
+            <div class="search-bar">
+                    <img src="lupa.png" alt="Поиск" class="search-icon">
+                <span class="search-placeholder">Поиск по Kaspi.kz</span>
+            </div>
+            <img src="cart.png" alt="Корзина" class="cart-icon">
+        </header>
+
+        <section class="ad-carousel">
+            <div class="ad-container">
+                <div class="ad-card">
+                    <img src="adcard1.png" alt="Рекламная карточка 1">
+                </div>
+            </div>
+        </section>
+    </div>
+        <div class="services-grid">
+        <a href="back.html" class="service-button">
+            <img src="buttons.png">
+        </a>
+                <section class="ad-carousel">
+            <div class="ad-container">
+                <div class="ad-card">
+                    <img src="kred.png" alt="Рекламная карточка 1">
+                </div>
+            </div>
+        </section>
+                        <section class="services-grid">
+            <div class="services-grid">
+                <div class="add-card">
+                    <img src="foot.png" alt="Рекламная карточка 1">
+                </div>
+            </div>
+        </section>
+        <div class="butfootik">
+            <img src="butfoot.png">
+        </div>
+
+
+    <script>const slider = document.querySelector('.ad-container');
+let isDown = false;
+let startX;
+let scrollLeft;
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.style.cursor = 'grabbing';
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.style.cursor = 'grab';
+});
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.style.cursor = 'grab';
+});
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return; 
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1; 
+    slider.scrollLeft = scrollLeft - walk;
+});</script>
+</body>
+</html>
